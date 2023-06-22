@@ -14,8 +14,6 @@ public class Category {
   @OneToMany(mappedBy = "category")
   private List<Product> products;
 
-  // ... pozostałe pola kategorii
-
 
   public Long getId() {
     return id;

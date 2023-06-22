@@ -11,13 +11,12 @@ public class Review {
   private Product product;
 
   @ManyToOne
-  private User user;
+  @JoinColumn(name = "user_id")
+  private AppUser user;
 
   private String comment;
 
   private int rating;
-
-  // ... pozostałe pola recenzji
 
 
   public Long getId() {
@@ -36,12 +35,12 @@ public class Review {
     this.product = product;
   }
 
-  public User getUser() {
+  public AppUser getUser() {
     return user;
   }
 
-  public void setUser(User user) {
-    this.user = user;
+  public void setUser(AppUser appUser) {
+    this.user = appUser;
   }
 
   public String getComment() {

@@ -4,7 +4,7 @@ package pl.opole.uni.springWebApp.controllers;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.opole.uni.springWebApp.models.User;
+import pl.opole.uni.springWebApp.models.AppUser;
 import pl.opole.uni.springWebApp.services.UserService;
 
 import java.util.List;
@@ -20,15 +20,15 @@ public class UserController {
   }
 
   @PostMapping
-  public ResponseEntity<User> createUser(@RequestBody User user) {
-    User createdUser = userService.createUser(user);
-    return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
+  public ResponseEntity<AppUser> createUser(@RequestBody AppUser appUser) {
+    AppUser createdAppUser = userService.createUser(appUser);
+    return ResponseEntity.status(HttpStatus.CREATED).body(createdAppUser);
   }
 
   @PutMapping("/{userId}")
-  public ResponseEntity<User> updateUser(@PathVariable Long userId, @RequestBody User user) {
-    User updatedUser = userService.updateUser(userId, user);
-    return ResponseEntity.ok(updatedUser);
+  public ResponseEntity<AppUser> updateUser(@PathVariable Long userId, @RequestBody AppUser appUser) {
+    AppUser updatedAppUser = userService.updateUser(userId, appUser);
+    return ResponseEntity.ok(updatedAppUser);
   }
 
   @DeleteMapping("/{userId}")
@@ -38,15 +38,15 @@ public class UserController {
   }
 
   @GetMapping("/{userId}")
-  public ResponseEntity<User> getUser(@PathVariable Long userId) {
-    User user = userService.getUserById(userId);
-    return ResponseEntity.ok(user);
+  public ResponseEntity<AppUser> getUser(@PathVariable Long userId) {
+    AppUser appUser = userService.getUserById(userId);
+    return ResponseEntity.ok(appUser);
   }
 
   @GetMapping
-  public ResponseEntity<List<User>> getAllUsers() {
-    List<User> users = userService.getAllUsers();
-    return ResponseEntity.ok(users);
+  public ResponseEntity<List<AppUser>> getAllUsers() {
+    List<AppUser> appUsers = userService.getAllUsers();
+    return ResponseEntity.ok(appUsers);
   }
 }
 

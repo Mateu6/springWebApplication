@@ -1,7 +1,5 @@
 package pl.opole.uni.springWebApp.models;
 
-import org.hibernate.annotations.Type;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -13,13 +11,14 @@ public class Order<OrderItem> {
   private Long id;
 
   @ManyToOne
-  private User user;
+  @JoinColumn(name = "user_id")
+  private AppUser user;
 
   @OneToMany(targetEntity = Order.class)
   private List<OrderItem> orderItems;
 
   private String status;
-  // ... pozostałe pola zamówienia, takie jak data zamówienia, status itp.
+
 
   public Order() {
     super();
@@ -34,12 +33,12 @@ public class Order<OrderItem> {
     this.id = id;
   }
 
-  public User getUser() {
+  public AppUser getUser() {
     return user;
   }
 
-  public void setUser(User user) {
-    this.user = user;
+  public void setUser(AppUser appUser) {
+    this.user = appUser;
   }
 
   public List<OrderItem> getOrderItems() {

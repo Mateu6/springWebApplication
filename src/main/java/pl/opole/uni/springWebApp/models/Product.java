@@ -22,7 +22,7 @@ public class Product {
   @OneToMany(mappedBy = "product")
   private List<Review> reviews;
 
-  // ... pozostałe pola produktu, takie jak dostępność itp.
+
 
 
   public Long getId() {
